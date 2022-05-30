@@ -1,3 +1,4 @@
+import { FarmServiceService } from './../../service/farm-service.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Farm } from 'src/app/model/farm-model';
@@ -13,9 +14,17 @@ export class FarmListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nameFarm',  'productivityFarm', 'action']
 
   constructor(private router: Router,
-    private route:ActivatedRoute) { }
+    private route:ActivatedRoute,
+    private farmService: FarmServiceService) { }
 
   ngOnInit(): void {
+    this.farmList();
+  }
+
+  private farmList(): void{
+  this.farmService.listFarms$.subscribe(farms => {
+    this.farms = farms;
+  });
   }
 
   onEdit(farm: Farm){
