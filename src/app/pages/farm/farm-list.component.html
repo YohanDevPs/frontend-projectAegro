@@ -1,0 +1,42 @@
+<div class="p-3">
+  <mat-card>
+    <h2>Fazenda</h2>
+
+    <table mat-table [dataSource]="farms" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nameFarm">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let element"> {{element.nameFarm}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="productivityFarm">
+        <th mat-header-cell *matHeaderCellDef> Productividade </th>
+        <td mat-cell *matCellDef="let element"> {{element.productivityFarm}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button="primary" (click)="onEdit(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button="primary" (click)="onDelete(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </mat-card>
+  <button class="fabButton" mat-fab color="primary" (click)="onAdd()">
+      <mat-icon>add</mat-icon>
+  </button>
+</div>
