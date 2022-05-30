@@ -28,11 +28,11 @@ export class FarmListComponent implements OnInit {
   }
 
   onEdit(farm: Farm){
-
+    this.router.navigate(['form', farm.id], {relativeTo:this.route})
   }
 
   onDelete(farm: Farm){
-
+    this.farmService.delete$(farm.id).subscribe(() => this.farmList())
   }
 
   onAdd(){
