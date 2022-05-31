@@ -20,13 +20,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
+import { PlotFormComponent } from './pages/plot/plot-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideNavFarmComponent,
     FarmListComponent,
-    FarmFormComponent
+    FarmFormComponent,
+    PlotFormComponent,
   ],
   imports: [
     BrowserModule,
