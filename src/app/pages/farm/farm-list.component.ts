@@ -39,4 +39,8 @@ export class FarmListComponent implements OnInit {
     this.router.navigate(['form'], {relativeTo:this.route})
   }
 
+  onAddPlot(farm: Farm){
+    this.router.navigate(['formPlot', farm.id], {relativeTo:this.route})
+  }
+
 }
