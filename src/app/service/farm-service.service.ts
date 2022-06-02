@@ -9,7 +9,6 @@ import { environment } from 'src/environments/environment';
 export class FarmServiceService {
 
   constructor(private httpClient: HttpClient) {
-
   }
 
   farmById(id:number): Observable<Farm>{

@@ -9,16 +9,17 @@ const routes: Routes = [
 
 
   {path: '', component: FarmFormComponent},
-  {path: 'farms/listPlot/:id', component: PlotListComponent},
-  {path: 'farms/listPlot/:id/formPlot/:idFarm', component: PlotFormComponent},
-  {path: 'farms/listPlot/:id', component: PlotListComponent},
-  {path: 'formPlot/:idFarm/listPlot', component: PlotListComponent},
-
-  // {path: 'plots/:idFarm', component: PlotListComponent},
 
   {path: 'farms', component: FarmListComponent},
-  {path: 'farms/form', component: FarmFormComponent},
-  {path: 'farms/form/:id', component: FarmFormComponent}
+  {path: 'farms/formFarmCadastro', component: FarmFormComponent},
+  {path: 'farms/formFarmEdit/:id', component: FarmFormComponent},
+
+  {path: 'farms/listPlot/:idFarm', component: PlotListComponent},
+
+  {path: 'formPlot/:idFarm/listPlot', component: PlotListComponent},
+
+  {path: 'farms/listPlot/:id/formPlotCadastro/:idFarm', component: PlotFormComponent},
+  {path: 'farms/listPlot/:id/formPlotEdit/:idFarm/:idPlotForEdit', component: PlotFormComponent},
 
   ];
 @NgModule({

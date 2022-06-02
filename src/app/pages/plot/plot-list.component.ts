@@ -18,12 +18,11 @@ export class PlotListComponent implements OnInit {
 
   constructor(private router: Router,
     private route:ActivatedRoute,
-    private plotService: PlotServiceService,
-    private farmService: FarmServiceService) { }
+    private plotService: PlotServiceService) { }
 
 
     ngOnInit(): void {
-      this.idFarm = this.route.snapshot.params['id'];
+      this.idFarm = this.route.snapshot.params['idFarm'];
       this.plotList(this.idFarm);
     }
 
@@ -34,17 +33,16 @@ export class PlotListComponent implements OnInit {
 
     }
 
-    // onEdit(farm: Farm){
-    //   // this.router.navigate(['form', farm.id], {relativeTo:this.route})
-    // }
+    onEdit(plot: Plot){
+      this.router.navigate(['formPlotEdit', this.idFarm, plot.idPlot], {relativeTo:this.route});
+    }
 
-    // onDelete(farm: Farm){
-    //   // this.farmService.delete$(farm.id).subscribe(() => this.farmList())
-    // }
+    onDelete(plot: Plot){
+      this.plotService.delete$(plot.idPlot).subscribe(() => this.plotList(this.idFarm))
+    }
 
     onAdd(){
-      this.router.navigate(['formPlot', this.idFarm], {relativeTo:this.route});
-
+      this.router.navigate(['formPlotCadastro', this.idFarm], {relativeTo:this.route});
     }
 
     // onAddPlot(farm: Farm){
