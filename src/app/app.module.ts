@@ -1,3 +1,4 @@
+import { PlotListComponent } from './pages/plot/plot-list.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -29,6 +30,7 @@ import { PlotFormComponent } from './pages/plot/plot-form.component';
     FarmListComponent,
     FarmFormComponent,
     PlotFormComponent,
+    PlotListComponent
   ],
   imports: [
     BrowserModule,
