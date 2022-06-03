@@ -15,7 +15,8 @@ export class FarmFormComponent implements OnInit {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-    private farmService: FarmServiceService) { }
+    private farmService: FarmServiceService,
+    private locale: Location) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
@@ -31,7 +32,7 @@ export class FarmFormComponent implements OnInit {
   }
 
   cancelar(){
-      this.router.navigate(['farms'])
+      this.locale.back();
   }
 
 }

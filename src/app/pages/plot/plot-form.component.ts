@@ -1,10 +1,8 @@
-import { Farm } from './../../model/farm-model';
-import { FarmServiceService } from './../../service/farm-service.service';
 import { PlotServiceService } from './../../service/plot-service.service';
 import { Plot } from './../../model/plot-model';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { take } from 'rxjs/operators';
 import { Location } from '@angular/common';
 
 @Component({
@@ -34,10 +32,12 @@ export class PlotFormComponent implements OnInit {
   }
 
   salvarPlot(){
+    console.log("Obejto Plot: ",this.plot);
+    console.log("Id da Fazenda: ",this.idFarm);
+
     this.plot.idPlot ?
       this.plotService.putPlot$(this.plot.idPlot , this.plot).subscribe(() => this.cancelar()):
       this.plotService.postPlot$(this.plot, this.idFarm).subscribe(() => this.cancelar());
-    console.log("objeto plot: ",this.plot)
   }
 
   cancelar(){

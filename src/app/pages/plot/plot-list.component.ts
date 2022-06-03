@@ -1,12 +1,11 @@
-import { Observable } from 'rxjs';
 import { Farm } from './../../model/farm-model';
 import { FarmServiceService } from 'src/app/service/farm-service.service';
 import { PlotServiceService } from './../../service/plot-service.service';
 import { Plot } from './../../model/plot-model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Location } from '@angular/common';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-plot-list',
@@ -18,6 +17,8 @@ export class PlotListComponent implements OnInit {
   plots: Array<Plot> = new  Array<Plot>();
 
   farm: Farm = new Farm();
+
+  plotss: Array<Plot> = [] ;
 
   displayedColumns: string[] = ['map', 'namePlot', 'plotAreaInHectare', 'action']
 
@@ -35,7 +36,6 @@ export class PlotListComponent implements OnInit {
       if(this.idFarm) {
         this.farmService.farmById(this.idFarm).subscribe(farm => this.farm = farm)
       }
-      this.plotList(this.idFarm);
     }
 
     private plotList(idFarm: number): void{

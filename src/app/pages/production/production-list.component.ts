@@ -40,6 +40,10 @@ export class ProductionListComponent implements OnInit {
     });
   }
 
+  // private updateProdutivityPlot(){
+  //   this.plotService.putPlot$
+  // }
+
     onEditProduction(production: Production){
       this.router.navigate(['formProductionEdit', this.idPlot, production.idProduction], {relativeTo:this.route});
     }
