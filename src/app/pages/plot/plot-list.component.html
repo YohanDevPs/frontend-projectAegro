@@ -1,7 +1,13 @@
 <div class="p-3">
   <mat-card>
-    <h2>Talhão</h2>
-
+    <div class="name-farm">
+      <h2>
+        <button (click)="backPage()" mat-icon-button="primary">
+          <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+        <strong> {{ farm.nameFarm }} </strong>
+      </h2>
+  </div>
     <table mat-table [dataSource]="plots" class="mat-elevation-z8">
 
       <ng-container matColumnDef="map">

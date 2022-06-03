@@ -11,7 +11,7 @@ export class ProductionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  ProductionById(idProduction:number): Observable<Production>{
+  productionById(idProduction:number): Observable<Production>{
     return this.httpClient.get<Production>(`${environment.API_PATH}production/${idProduction}`);
   }
 

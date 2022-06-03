@@ -25,7 +25,7 @@ export class ProductionFormComponent implements OnInit {
       const idProduction = this.route.snapshot.params['idProductionForEdit'];
       this.idProductionForEdit = idProduction;
       if(idProduction) {
-        this.productionService.ProductionById(idProduction).subscribe(production => this.production = production)
+        this.productionService.productionById(idProduction).subscribe(production => this.production = production)
       }
       this.idPlot = this.route.snapshot.params['idPlot'];
   }
