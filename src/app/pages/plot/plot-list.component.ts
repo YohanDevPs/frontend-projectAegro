@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PlotListComponent implements OnInit {
 
   plots: Array<Plot> = new  Array<Plot>();
-  displayedColumns: string[] = ['idPlot', 'namePlot', 'plotAreaInHectare', 'action']
+  displayedColumns: string[] = ['map', 'namePlot', 'plotAreaInHectare', 'action']
 
   idFarm: number;
 
@@ -33,20 +33,19 @@ export class PlotListComponent implements OnInit {
 
     }
 
-    onEdit(plot: Plot){
-      this.router.navigate(['formPlotEdit', this.idFarm, plot.idPlot], {relativeTo:this.route});
-    }
-
     onDelete(plot: Plot){
       this.plotService.delete$(plot.idPlot).subscribe(() => this.plotList(this.idFarm))
     }
 
+    onEdit(plot: Plot){
+      this.router.navigate(['formPlotEdit', this.idFarm, plot.idPlot], {relativeTo:this.route});
+    }
     onAdd(){
       this.router.navigate(['formPlotCadastro', this.idFarm], {relativeTo:this.route});
     }
 
-    // onAddPlot(farm: Farm){
-    //   // this.router.navigate(['listPlot', farm.id], {relativeTo:this.route})
-    // }
+    onAddProduction(plot: Plot){
+      this.router.navigate(['listProduction', plot.idPlot], {relativeTo:this.route})
+    }
 
 }

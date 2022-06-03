@@ -38,7 +38,7 @@ export class ProductionFormComponent implements OnInit {
 
       this.productionService.postProduction$(this.production, this.idPlot)
       .subscribe(() => this.cancelar());
-      console.log("Este é o montante: ",this.production.amount)
+      console.log("Este é o objeto: " ,this.production);
   }
 
   cancelar(){

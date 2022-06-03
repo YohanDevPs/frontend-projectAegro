@@ -11,7 +11,7 @@ import { Farm } from 'src/app/model/farm-model';
 export class FarmListComponent implements OnInit {
 
   farms: Array<Farm> = new  Array<Farm>();
-  displayedColumns: string[] = ['id', 'nameFarm',  'productivityFarm', 'action']
+  displayedColumns: string[] = ['home', 'nameFarm', 'action']
 
   constructor(private router: Router,
     private route:ActivatedRoute,
@@ -40,7 +40,7 @@ export class FarmListComponent implements OnInit {
   }
 
   onAddPlot(farm: Farm){
-    this.router.navigate(['listPlot', farm.id], {relativeTo:this.route})
+    this.router.navigate(['farms/listPlot', farm.id], {relativeTo:this.route})
   }
 
 }

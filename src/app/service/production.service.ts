@@ -27,7 +27,7 @@ export class ProductionService {
     return this.httpClient.get<Array<Production>>(`${environment.API_PATH}production/${idPlot}/idplot`);
   }
 
-  putProduction$(production: Production, idProduction:number, ): Observable<Production>{
+  putProduction$(production: Production, idProduction:number): Observable<Production>{
     return this.httpClient.put<Production>(`${environment.API_PATH}production/${idProduction}`, production);
   }
 

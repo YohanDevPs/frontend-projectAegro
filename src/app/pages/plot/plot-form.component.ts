@@ -5,6 +5,7 @@ import { Plot } from './../../model/plot-model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-plot-form',
@@ -20,7 +21,8 @@ export class PlotFormComponent implements OnInit {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-    private plotService: PlotServiceService) { }
+    private plotService: PlotServiceService,
+    private location: Location) { }
 
   ngOnInit(): void {
       const idPlot = this.route.snapshot.params['idPlotForEdit'];
@@ -29,39 +31,16 @@ export class PlotFormComponent implements OnInit {
         this.plotService.plotById(idPlot).subscribe(plot => this.plot = plot)
       }
       this.idFarm = this.route.snapshot.params['idFarm'];
-      console.log("Testeee: " + this.idFarm);
   }
 
   salvarPlot(){
     this.plot.idPlot ?
       this.plotService.putPlot$(this.plot.idPlot , this.plot).subscribe(() => this.cancelar()):
       this.plotService.postPlot$(this.plot, this.idFarm).subscribe(() => this.cancelar());
-    // }
+    console.log("objeto plot: ",this.plot)
   }
 
-  // salvar(){
-  //   this.farm.id ?
-  //     this.farmService.put$(this.farm.id, this.farm).subscribe(() => this.cancelar()) :
-  //     this.farmService.post$(this.farm).subscribe(() => this.cancelar());
-  // }
   cancelar(){
-
-
-    this.router.navigate(['farms/listPlot', this.idFarm]);
+    this.location.back();
   }
-
-
 }
-// ngOnInit(): void {
-//   const id = this.route.snapshot.params['id'];
-//   if(id) {
-//     this.farmService.farmById(id).subscribe(farm => this.farm = farm)
-//   }
-// }
-
-
-// cancelar(){
-//     this.router.navigate(['farms'])
-// }
-
-// }

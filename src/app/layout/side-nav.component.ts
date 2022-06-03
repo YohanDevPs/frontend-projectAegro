@@ -4,9 +4,9 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-side-nav-farm',
-  templateUrl: './side-nav-farm.component.html',
-  styleUrls: ['./side-nav-farm.component.scss']
+  selector: 'app-side-nav',
+  templateUrl: './side-nav.component.html',
+  styleUrls: ['./side-nav.component.scss']
 })
 export class SideNavFarmComponent {
 
