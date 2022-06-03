@@ -1,8 +1,12 @@
+import { Observable } from 'rxjs';
+import { Farm } from './../../model/farm-model';
 import { FarmServiceService } from 'src/app/service/farm-service.service';
 import { PlotServiceService } from './../../service/plot-service.service';
 import { Plot } from './../../model/plot-model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-plot-list',
@@ -12,17 +16,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PlotListComponent implements OnInit {
 
   plots: Array<Plot> = new  Array<Plot>();
+
+  farm: Farm = new Farm();
+
   displayedColumns: string[] = ['map', 'namePlot', 'plotAreaInHectare', 'action']
 
   idFarm: number;
 
   constructor(private router: Router,
     private route:ActivatedRoute,
-    private plotService: PlotServiceService) { }
+    private plotService: PlotServiceService,
+    private farmService: FarmServiceService,
+    private locale: Location) { }
 
 
     ngOnInit(): void {
       this.idFarm = this.route.snapshot.params['idFarm'];
+      if(this.idFarm) {
+        this.farmService.farmById(this.idFarm).subscribe(farm => this.farm = farm)
+      }
       this.plotList(this.idFarm);
     }
 
@@ -46,6 +58,10 @@ export class PlotListComponent implements OnInit {
 
     onAddProduction(plot: Plot){
       this.router.navigate(['listProduction', plot.idPlot], {relativeTo:this.route})
+    }
+
+    backPage(){
+      this.locale.back();
     }
 
 }

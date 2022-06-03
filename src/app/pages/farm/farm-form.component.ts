@@ -20,7 +20,7 @@ export class FarmFormComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
     if(id) {
-      this.farmService.farmById(id).subscribe(farm => this.farm = farm)
+      this.farmService.farmById(id).subscribe(farm => this.farm = farm);
     }
   }
 

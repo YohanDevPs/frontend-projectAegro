@@ -1,7 +1,13 @@
 <div class="p-3">
   <mat-card>
-    <h2>Produção</h2>
-
+    <div class="col-6 mb-0 header-title">
+      <h2>
+      <button (click)="backPage()" mat-icon-button="primary">
+        <mat-icon>arrow_back_ios</mat-icon>
+      </button>
+     <strong>{{ plot.namePlot }}</strong>
+    </h2>
+  </div>
     <table mat-table [dataSource]="productions" class="mat-elevation-z8">
 
       <ng-container matColumnDef="producao">

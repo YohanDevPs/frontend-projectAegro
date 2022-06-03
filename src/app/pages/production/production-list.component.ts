@@ -1,7 +1,11 @@
+import { PlotServiceService } from './../../service/plot-service.service';
+import { PlotListComponent } from './../plot/plot-list.component';
 import { Production } from './../../model/production-model';
 import { ProductionService } from './../../service/production.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Plot } from 'src/app/model/plot-model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-production-list',
@@ -13,15 +17,20 @@ export class ProductionListComponent implements OnInit {
   productions: Array<Production> = new  Array<Production>();
   displayedColumns: string[] = ['producao', 'amount', 'action']
 
+  plot: Plot = new Plot();
   idPlot: number;
 
   constructor(private router: Router,
     private route:ActivatedRoute,
-    private productionService: ProductionService) { }
-
+    private productionService: ProductionService,
+    private plotService: PlotServiceService,
+    private location: Location) { };
 
     ngOnInit(): void {
       this.idPlot = this.route.snapshot.params['idPlot'];
+      if(this.idPlot) {
+        this.plotService.plotById(this.idPlot).subscribe(plot => this.plot = plot);
+      }
       this.productionList(this.idPlot);
     }
 
@@ -41,6 +50,10 @@ export class ProductionListComponent implements OnInit {
 
     onAddProduction(){
       this.router.navigate(['formProductionCadastro', this.idPlot], {relativeTo:this.route});
+    }
+
+    backPage(){
+      this.location.back();
     }
 
 }
