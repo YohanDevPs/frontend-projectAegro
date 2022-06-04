@@ -1,11 +1,9 @@
-import { Observable } from 'rxjs';
 import { Farm } from './../../model/farm-model';
 import { FarmServiceService } from 'src/app/service/farm-service.service';
 import { PlotServiceService } from './../../service/plot-service.service';
 import { Plot } from './../../model/plot-model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Location } from '@angular/common';
 
 @Component({
@@ -15,7 +13,7 @@ import { Location } from '@angular/common';
 })
 export class PlotListComponent implements OnInit {
 
-  plots: Array<Plot> = new  Array<Plot>();
+  plots: Array<Plot> = [];
 
   farm: Farm = new Farm();
 
@@ -35,14 +33,20 @@ export class PlotListComponent implements OnInit {
       if(this.idFarm) {
         this.farmService.farmById(this.idFarm).subscribe(farm => this.farm = farm)
       }
-      this.plotList(this.idFarm);
+        console.log(this.plotList(this.idFarm))
+      if(this.plotList(this.idFarm) === undefined){
+        this.plots = [];
+        console.log("Lista Vazia");
+      }else{
+        this.plotList(this.idFarm);
+      }
     }
 
-    private plotList(idFarm: number): void{
+    private plotList(idFarm: number): Array<Plot> {
       this.plotService.listPlotByIdFarm$(idFarm).subscribe(plots => {
       this.plots = plots;
     });
-
+      return this.plots;
     }
 
     onDelete(plot: Plot){
@@ -52,6 +56,7 @@ export class PlotListComponent implements OnInit {
     onEdit(plot: Plot){
       this.router.navigate(['formPlotEdit', this.idFarm, plot.idPlot], {relativeTo:this.route});
     }
+
     onAdd(){
       this.router.navigate(['formPlotCadastro', this.idFarm], {relativeTo:this.route});
     }

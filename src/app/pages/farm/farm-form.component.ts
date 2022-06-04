@@ -1,8 +1,8 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Farm } from 'src/app/model/farm-model';
 import { FarmServiceService } from 'src/app/service/farm-service.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-farm-form',
@@ -15,7 +15,8 @@ export class FarmFormComponent implements OnInit {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-    private farmService: FarmServiceService) { }
+    private farmService: FarmServiceService,
+    private locale: Location) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
@@ -31,7 +32,7 @@ export class FarmFormComponent implements OnInit {
   }
 
   cancelar(){
-      this.router.navigate(['farms'])
+    this.locale.back();
   }
 
 }

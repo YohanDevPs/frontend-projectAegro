@@ -14,7 +14,7 @@ import { Location } from '@angular/common';
 })
 export class ProductionListComponent implements OnInit {
 
-  productions: Array<Production> = new  Array<Production>();
+  productions: Array<Production> = [];
   displayedColumns: string[] = ['producao', 'amount', 'action']
 
   plot: Plot = new Plot();

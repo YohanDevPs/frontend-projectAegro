@@ -1,13 +1,15 @@
+<div class="container-list">
 <div class="p-3">
   <mat-card>
-    <div class="name-farm">
+    <div>
       <h2>
-        <button (click)="backPage()" mat-icon-button="primary">
+        <button class="top-info" (click)="backPage()" mat-icon-button="primary">
           <mat-icon>arrow_back_ios</mat-icon>
         </button>
-        <strong> {{ farm.nameFarm }} </strong>
+        <strong class="top-info"> {{ farm.nameFarm }} </strong>
+        <button class="top-info" id="adicionar-talhao" (click)="onAdd()">+ Nova Área</button>
       </h2>
-  </div>
+     </div>
     <table mat-table [dataSource]="plots" class="mat-elevation-z8">
 
       <ng-container matColumnDef="map">
@@ -47,7 +49,5 @@
     </table>
 
   </mat-card>
-  <button class="fabButton" mat-fab color="primary" (click)="onAdd()">
-      <mat-icon>add</mat-icon>
-  </button>
+</div>
 </div>

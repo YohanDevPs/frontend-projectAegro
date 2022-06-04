@@ -10,7 +10,7 @@ import { Farm } from 'src/app/model/farm-model';
 })
 export class FarmListComponent implements OnInit {
 
-  farms: Array<Farm> = new  Array<Farm>();
+  farms: Array<Farm> = [];
   displayedColumns: string[] = ['home', 'nameFarm', 'action']
 
   constructor(private router: Router,
@@ -28,7 +28,7 @@ export class FarmListComponent implements OnInit {
   }
 
   onEdit(farm: Farm){
-    this.router.navigate(['formFarmEdit', farm.id], {relativeTo:this.route})
+    this.router.navigate(['farms/formFarmEdit', farm.id], {relativeTo:this.route})
   }
 
   onDelete(farm: Farm){
@@ -36,7 +36,7 @@ export class FarmListComponent implements OnInit {
   }
 
   onAdd(){
-    this.router.navigate(['formFarmCadastro'], {relativeTo:this.route})
+    this.router.navigate(['farms/formFarmCadastro'], {relativeTo:this.route})
   }
 
   onAddPlot(farm: Farm){

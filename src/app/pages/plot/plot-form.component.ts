@@ -28,7 +28,7 @@ export class PlotFormComponent implements OnInit {
       const idPlot = this.route.snapshot.params['idPlotForEdit'];
       this.idPlotForEdit = idPlot;
       if(idPlot) {
-        this.plotService.plotById(idPlot).subscribe(plot => this.plot = plot)
+        this.plotService.plotById(idPlot).subscribe(plot => this.plot = plot);
       }
       this.idFarm = this.route.snapshot.params['idFarm'];
   }
@@ -41,6 +41,6 @@ export class PlotFormComponent implements OnInit {
   }
 
   cancelar(){
-    this.location.back();
+    this.router.navigate(['farms/listPlot', this.idFarm]);
   }
 }
