@@ -11,6 +11,7 @@ const routes: Routes = [
 
   {path: '', component: FarmListComponent},
 
+  {path: 'farms', component: FarmListComponent},
   {path: 'farms/formFarmCadastro', component: FarmFormComponent},
   {path: 'farms/formFarmEdit/:id', component: FarmFormComponent},
 

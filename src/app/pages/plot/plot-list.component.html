@@ -8,6 +8,8 @@
         </button>
         <strong class="top-info"> {{ farm.nameFarm }} </strong>
         <button class="top-info" id="adicionar-talhao" (click)="onAdd()">+ Nova Área</button>
+        <h4 class="" id="name-productivity"> Produtividade</h4>
+        <h2 class="" id="quantitity-productivity">{{ farm.farmProductivity }} kg/ha</h2>
       </h2>
      </div>
     <table mat-table [dataSource]="plots" class="mat-elevation-z8">

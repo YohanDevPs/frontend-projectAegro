@@ -32,7 +32,7 @@ export class FarmFormComponent implements OnInit {
   }
 
   cancelar(){
-    this.locale.back();
+    this.router.navigate(['farms']);
   }
 
 }

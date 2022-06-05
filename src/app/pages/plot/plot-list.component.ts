@@ -35,7 +35,6 @@ export class PlotListComponent implements OnInit {
       }
         console.log(this.plotList(this.idFarm))
       if(this.plotList(this.idFarm) === undefined){
-        this.plots = [];
         console.log("Lista Vazia");
       }else{
         this.plotList(this.idFarm);
@@ -66,7 +65,9 @@ export class PlotListComponent implements OnInit {
     }
 
     backPage(){
-      this.locale.back();
+      this.router.navigate(['farms']);
     }
+
+
 
 }

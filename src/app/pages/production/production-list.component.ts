@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Plot } from 'src/app/model/plot-model';
 import { Location } from '@angular/common';
+import { Farm } from 'src/app/model/farm-model';
 
 @Component({
   selector: 'app-production-list',
@@ -53,7 +54,7 @@ export class ProductionListComponent implements OnInit {
     }
 
     backPage(){
-      this.location.back();
+      this.router.navigate(['farms/listPlot', this.idPlot])
     }
 
 }
