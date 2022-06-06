@@ -9,8 +9,51 @@ table{
   box-shadow: none;
 }
 
+#name-plot{
+  margin-top: 110px;
+  font-size: 27px;
+}
+
 .teste{
   display: inline-block;
+}
+
+#button-editarplot{
+  top: 30px;
+  position: absolute;
+  right: 50px;
+  padding: 5px 20px 0px 20px;
+	color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+	font-weight: bold;
+	font-size: 14px;
+	border: none;
+}
+
+#button-deletarplot{
+  top: 30px;
+  position: absolute;
+  right: 10px;
+  padding: 5px 10px 0px 10px;
+	color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+	font-weight: bold;
+	font-size: 14px;
+	border: none;
+  border-left: solid 2px rgb(210, 208, 208);
+}
+
+.block-topinformation{
+  border-bottom: solid 1px rgb(177, 177, 177);
+}
+
+.title-table{
+  right: 10px;
+  position: absolute;
+  left: 50px;
+  top: 150px;
+	font-size: 17px;
+	border: none;
 }
 
 #adicionar-talhao{
@@ -26,17 +69,43 @@ table{
 	transition: 0.1s all;
 }
 
-#adicionar-talhao:hover {
+#adicionar-producao{
+  top: 150px;
+  position: absolute;
+  right: 20px;
+  padding: 5px 30px 5px 20px;
+	background: rgb(10, 175, 37);
+	color: white;
+	font-weight: bold;
+	font-size: 14px;
+	border: none;
+	transition: 0.1s all;
+}
+
+#adicionar-producao:hover {
 	background: rgb(8, 67, 3);
 }
 
 #name-productivity{
-  color: rgb(61, 61, 61);
+  color: rgb(180, 180, 180);
+  padding: 0px 0px 0px 0px;
   margin-left: 45px;
   margin-bottom: 0px;
+  font-size: 13px;
+}
+
+#table{
+  margin-top: 100px;
 }
 
 #quantitity-productivity{
-  margin-top: 0px;
+  margin-top: -9px;
+  padding: 0px 0px 0px 0px;
   margin-left: 45px;
-}
+  font-weight: normal;
+ }
+
+// #quantitity-productivity{
+//   margin-top: 0px;
+//   margin-left: 45px;
+// }

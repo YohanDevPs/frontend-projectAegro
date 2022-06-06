@@ -1,17 +1,26 @@
 <div class="container-list">
 <div class="p-3">
   <mat-card>
-    <div>
-      <h2>
-        <button class="top-info" (click)="backPage()" mat-icon-button="primary">
+    <div class="block-topinformation">
+      <h2 class="toinline">
+        <button class="top-firslinetinfo" id="button-backpage" (click)="backPage()" mat-icon-button="primary">
           <mat-icon>arrow_back_ios</mat-icon>
         </button>
-        <strong class="top-info"> {{ farm.nameFarm }} </strong>
-        <button class="top-info" id="adicionar-talhao" (click)="onAdd()">+ Nova Área</button>
-        <h4 class="" id="name-productivity"> Produtividade</h4>
-        <h2 class="" id="quantitity-productivity">{{ farm.farmProductivity }} kg/ha</h2>
+        <strong  id="name-farm"> {{ farm.nameFarm }} </strong>
+        <button class="top-firslinetinfo" id="button-editarfazenda" (click)="onEditFarm()">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button class="top-firslinetinfo" id="button-deletarfazenda" (click)="onDeleteFarm()">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <h4 id="name-productivity"> Produtividade</h4>
+        <h2 id="quantitity-productivity">{{ farm.farmProductivity }} kg/ha</h2>
       </h2>
-     </div>
+    </div>
+
+    <h3  class="title-table">Áreas da Fazenda</h3>
+    <button  id="adicionar-talhao" (click)="onAdd()">+ Nova Área</button>
+
     <table mat-table [dataSource]="plots" class="mat-elevation-z8">
 
       <ng-container matColumnDef="map">
@@ -27,7 +36,7 @@
       </ng-container>
 
       <ng-container matColumnDef="plotAreaInHectare">
-        <th mat-header-cell *matHeaderCellDef>Área</th>
+        <th mat-header-cell *matHeaderCellDef>Área(ha)</th>
         <td mat-cell *matCellDef="let element"> {{element.plotAreaInHectare}} </td>
       </ng-container>
 
@@ -49,7 +58,6 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-
   </mat-card>
 </div>
 </div>
