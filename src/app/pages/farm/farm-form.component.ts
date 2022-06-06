@@ -15,11 +15,11 @@ export class FarmFormComponent implements OnInit {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-    private farmService: FarmServiceService,
-    private locale: Location) { }
+    private farmService: FarmServiceService
+    ) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['id'];
+    const id = this.route.snapshot.params['idFarm'];
     if(id) {
       this.farmService.farmById(id).subscribe(farm => this.farm = farm);
     }

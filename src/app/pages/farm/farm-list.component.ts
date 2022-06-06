@@ -27,20 +27,20 @@ export class FarmListComponent implements OnInit {
   });
   }
 
-  onEdit(farm: Farm){
-    this.router.navigate(['farms/formFarmEdit', farm.id], {relativeTo:this.route})
+  addNewFarm(){
+    this.router.navigate(['farmform-cadastro'])
   }
 
-  onDelete(farm: Farm){
+  editFarm(farm: Farm){
+    this.router.navigate(['farmform-edit', farm.id])
+  }
+
+  deleteFarm(farm: Farm){
     this.farmService.delete$(farm.id).subscribe(() => this.farmList())
   }
 
-  onAdd(){
-    this.router.navigate(['formFarmCadastro'], {relativeTo:this.route})
-  }
-
-  onAddPlot(farm: Farm){
-    this.router.navigate(['listPlot', farm.id], {relativeTo:this.route})
+  addPlotInFarm(farm: Farm){
+    this.router.navigate(['listPlot', farm.id])
   }
 
 }

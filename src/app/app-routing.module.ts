@@ -9,25 +9,19 @@ import { PlotListComponent } from './pages/plot/plot-list.component';
 
 const routes: Routes = [
 
-  {path: '', component: FarmListComponent},
+  {path: '', component: FarmFormComponent},
 
   {path: 'farms', component: FarmListComponent},
-  {path: 'farms/formFarmCadastro', component: FarmFormComponent},
-  {path: 'farms/formFarmEdit/:id', component: FarmFormComponent},
+  {path: 'farmform-edit/:idFarm', component: FarmFormComponent},
+  {path: 'farmform-cadastro', component: FarmFormComponent},
 
-  {path: 'farms/listPlot/:idFarm', component: PlotListComponent},
+  {path: 'listPlot/:idFarm', component: PlotListComponent},
+  {path: 'plotform-cadastro/:idFarm', component: PlotFormComponent},
+  {path: 'plotform-edit/:idPlot/:idFarm', component: PlotFormComponent},
 
-  {path: 'formPlot/:idFarm/listPlot', component: PlotListComponent},
-
-  {path: 'farms/listPlot/:id/formPlotCadastro/:idFarm', component: PlotFormComponent},
-  {path: 'farms/listPlot/:id/formPlotEdit/:idFarm/:idPlotForEdit', component: PlotFormComponent},
-
-  {path: 'productions', component: ProductionFormComponent},
-  {path: 'farms/listPlot/:idFarm/listProduction/:idPlot', component: ProductionListComponent},
-  {path: 'farms/listPlot/:idFarm/listProduction/:idPlot/formProductionCadastro/:idPlott', component: ProductionFormComponent},
-  {path: 'farms/listPlot/:idFarm/listProduction/:idPlot/formProductionEdit/:idPlott/:idProductionForEdit', component: ProductionFormComponent},
-
-  {path: 'farms/listPlot/:idFarm/listProduction/:idPlot', component: ProductionListComponent},
+  {path: 'listProduction/:idPlot/:idFarm', component: ProductionListComponent},
+  {path: 'productionform-cadastro/:idPlot/:idFarm', component: ProductionFormComponent},
+  {path: 'productionform-edit/:idProduction/:idPlot/:idFarm', component: ProductionFormComponent},
 
   ];
 @NgModule({

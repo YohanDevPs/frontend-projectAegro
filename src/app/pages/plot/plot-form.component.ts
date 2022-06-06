@@ -25,7 +25,7 @@ export class PlotFormComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit(): void {
-      const idPlot = this.route.snapshot.params['idPlotForEdit'];
+      let idPlot = this.route.snapshot.params['idPlot'];
       this.idPlotForEdit = idPlot;
       if(idPlot) {
         this.plotService.plotById(idPlot).subscribe(plot => this.plot = plot);
@@ -41,6 +41,6 @@ export class PlotFormComponent implements OnInit {
   }
 
   cancelar(){
-    this.router.navigate(['farms/listPlot', this.idFarm]);
+    this.router.navigate(['listPlot', this.idFarm]);
   }
 }

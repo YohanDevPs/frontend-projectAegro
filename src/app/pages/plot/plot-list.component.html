@@ -19,7 +19,7 @@
     </div>
 
     <h3  class="title-table">Áreas da Fazenda</h3>
-    <button  id="adicionar-talhao" (click)="onAdd()">+ Nova Área</button>
+    <button  id="adicionar-talhao" (click)="addPlot()">+ Nova Área</button>
 
     <table mat-table [dataSource]="plots" class="mat-elevation-z8">
 
@@ -43,10 +43,10 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button="primary" (click)="onEdit(element)">
+          <button mat-icon-button="primary" (click)="editPlot(element)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button="primary" (click)="onDelete(element)">
+          <button mat-icon-button="primary" (click)="deletePlot(element)">
             <mat-icon>delete</mat-icon>
           </button>
           <button mat-icon-button="primary" (click)="onAddProduction(element)">

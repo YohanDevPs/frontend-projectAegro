@@ -13,6 +13,7 @@ export class ProductionFormComponent implements OnInit {
 
   production: Production = new Production();
 
+  idFarm: number
   idPlot: number
   idProductionForEdit: number;
 
@@ -22,7 +23,8 @@ export class ProductionFormComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit(): void {
-      const idProduction = this.route.snapshot.params['idProductionForEdit'];
+      const idProduction = this.route.snapshot.params['idProduction'];
+      this.idFarm = this.route.snapshot.params['idFarm'];
       this.idProductionForEdit = idProduction;
       if(idProduction) {
         this.productionService.productionById(idProduction).subscribe(production => this.production = production)
@@ -38,11 +40,10 @@ export class ProductionFormComponent implements OnInit {
 
       this.productionService.postProduction$(this.production, this.idPlot)
       .subscribe(() => this.cancelar());
-      console.log("Este é o objeto: " ,this.production);
   }
 
   cancelar(){
-    this.location.back();
+    this.router.navigate(['listProduction', this.idPlot, this.idFarm]);
   }
 
 }

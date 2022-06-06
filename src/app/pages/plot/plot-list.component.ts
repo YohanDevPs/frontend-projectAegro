@@ -24,8 +24,7 @@ export class PlotListComponent implements OnInit {
   constructor(private router: Router,
     private route:ActivatedRoute,
     private plotService: PlotServiceService,
-    private farmService: FarmServiceService,
-    private locale: Location) { }
+    private farmService: FarmServiceService) { }
 
 
     ngOnInit(): void {
@@ -33,41 +32,48 @@ export class PlotListComponent implements OnInit {
       if(this.idFarm) {
         this.farmService.farmById(this.idFarm).subscribe(farm => this.farm = farm)
       }
-        console.log(this.plotList(this.idFarm))
-      if(this.plotList(this.idFarm) === undefined){
-        console.log("Lista Vazia");
-      }else{
-        this.plotList(this.idFarm);
-      }
+
+      this.plotList(this.idFarm);
     }
 
     private plotList(idFarm: number): Array<Plot> {
-      this.plotService.listPlotByIdFarm$(idFarm).subscribe(plots => {
-      this.plots = plots;
-    });
-      return this.plots;
+      if (this.plotService.listPlotByIdFarm$(idFarm) === undefined ){
+        console.log("Lista vazia")
+        return this.plots = [];
+      }else{
+        this.plotService.listPlotByIdFarm$(idFarm).subscribe(plots => {
+        this.plots = plots;
+        return this.plots;
+      });
+     }
     }
 
-    onDelete(plot: Plot){
+    addPlot(){
+      this.router.navigate(['plotform-cadastro', this.idFarm]);
+    }
+
+    editPlot(plot: Plot){
+      this.router.navigate(['plotform-edit', plot.idPlot, this.idFarm]);
+    }
+
+    onEditFarm(){
+      this.router.navigate(['farmform-edit', this.idFarm])
+    }
+
+    onDeleteFarm(){
+      this.farmService.delete$(this.idFarm).subscribe(() => this.backPage())
+    }
+
+    deletePlot(plot: Plot){
       this.plotService.delete$(plot.idPlot).subscribe(() => this.plotList(this.idFarm))
     }
 
-    onEdit(plot: Plot){
-      this.router.navigate(['formPlotEdit', this.idFarm, plot.idPlot], {relativeTo:this.route});
-    }
-
-    onAdd(){
-      this.router.navigate(['formPlotCadastro', this.idFarm], {relativeTo:this.route});
-    }
-
     onAddProduction(plot: Plot){
-      this.router.navigate(['listProduction', plot.idPlot], {relativeTo:this.route})
+      this.router.navigate(['listProduction', plot.idPlot, this.idFarm])
     }
 
     backPage(){
       this.router.navigate(['farms']);
     }
-
-
 
 }

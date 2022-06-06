@@ -3,7 +3,7 @@
     <mat-card>
       <h2 class="top-info">Fazendas</h2>
 
-      <button class="top-info" id="button-adicionarfazenda" (click)="onAdd()">+ Nova Fazenda</button>
+      <button class="top-info" id="button-adicionarfazenda" (click)="addNewFarm()">+ Nova Fazenda</button>
       <table mat-table [dataSource]="farms" class="mat-elevation-z8">
 
         <ng-container matColumnDef="home">
@@ -21,13 +21,13 @@
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element">
-            <button mat-icon-button="primary" (click)="onEdit(element)">
+            <button mat-icon-button="primary" (click)="editFarm(element)">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button="primary" (click)="onDelete(element)">
+            <button mat-icon-button="primary" (click)="deleteFarm(element)">
               <mat-icon>delete</mat-icon>
             </button>
-            <button mat-icon-button="primary" (click)="onAddPlot(element)">
+            <button mat-icon-button="primary" (click)="addPlotInFarm(element)">
               <mat-icon>keyboard_arrow_right</mat-icon>
             </button>
           </td>
