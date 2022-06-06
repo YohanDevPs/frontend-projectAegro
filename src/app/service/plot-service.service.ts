@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PlotServiceService {
+export class PlotService {
 
   constructor(private httpClient: HttpClient) {
   }

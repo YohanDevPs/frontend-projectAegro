@@ -1,14 +1,11 @@
-import { FarmServiceService } from 'src/app/service/farm-service.service';
-import { PlotServiceService } from './../../service/plot-service.service';
-import { PlotListComponent } from './../plot/plot-list.component';
+import { Plot } from 'src/app/model/plot-model';
+import { PlotService } from './../../service/plot-service.service';
+import { Farm } from 'src/app/model/farm-model';
 import { Production } from './../../model/production-model';
 import { ProductionService } from './../../service/production.service';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Plot } from 'src/app/model/plot-model';
-import { Location } from '@angular/common';
-import { Farm } from 'src/app/model/farm-model';
-import { NumericLiteral } from 'typescript';
 
 @Component({
   selector: 'app-production-list',
@@ -28,8 +25,7 @@ export class ProductionListComponent implements OnInit {
   constructor(private router: Router,
     private route:ActivatedRoute,
     private productionService: ProductionService,
-    private plotService: PlotServiceService
-    ) { };
+    private plotService: PlotService) { };
 
     ngOnInit(): void {
       this.idPlot = this.route.snapshot.params['idPlot'];

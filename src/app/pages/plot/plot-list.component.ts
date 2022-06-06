@@ -1,10 +1,11 @@
 import { Farm } from './../../model/farm-model';
-import { FarmServiceService } from 'src/app/service/farm-service.service';
-import { PlotServiceService } from './../../service/plot-service.service';
+import { FarmService } from 'src/app/service/farm-service.service';
 import { Plot } from './../../model/plot-model';
+import { PlotService } from './../../service/plot-service.service';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-plot-list',
@@ -23,8 +24,8 @@ export class PlotListComponent implements OnInit {
 
   constructor(private router: Router,
     private route:ActivatedRoute,
-    private plotService: PlotServiceService,
-    private farmService: FarmServiceService) { }
+    private plotService: PlotService,
+    private farmService: FarmService) { }
 
 
     ngOnInit(): void {

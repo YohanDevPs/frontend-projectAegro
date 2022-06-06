@@ -1,8 +1,8 @@
 import { ProductionService } from './../../service/production.service';
 import { Production } from './../../model/production-model';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-production-form',
@@ -19,8 +19,7 @@ export class ProductionFormComponent implements OnInit {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-    private productionService: ProductionService,
-    private location: Location) { }
+    private productionService: ProductionService) { }
 
   ngOnInit(): void {
       const idProduction = this.route.snapshot.params['idProduction'];

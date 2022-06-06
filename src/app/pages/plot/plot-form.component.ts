@@ -1,11 +1,8 @@
-import { Farm } from './../../model/farm-model';
-import { FarmServiceService } from './../../service/farm-service.service';
-import { PlotServiceService } from './../../service/plot-service.service';
 import { Plot } from './../../model/plot-model';
+import { PlotService } from './../../service/plot-service.service';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { take } from 'rxjs/operators';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-plot-form',
@@ -21,8 +18,7 @@ export class PlotFormComponent implements OnInit {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-    private plotService: PlotServiceService,
-    private location: Location) { }
+    private plotService: PlotService) { }
 
   ngOnInit(): void {
       let idPlot = this.route.snapshot.params['idPlot'];

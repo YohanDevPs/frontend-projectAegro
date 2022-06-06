@@ -1,7 +1,8 @@
-import { FarmServiceService } from './../../service/farm-service.service';
+import { Farm } from 'src/app/model/farm-model';
+import { FarmService } from './../../service/farm-service.service';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Farm } from 'src/app/model/farm-model';
 
 @Component({
   selector: 'app-farm-list',
@@ -15,7 +16,7 @@ export class FarmListComponent implements OnInit {
 
   constructor(private router: Router,
     private route:ActivatedRoute,
-    private farmService: FarmServiceService) { }
+    private farmService: FarmService) { }
 
   ngOnInit(): void {
     this.farmList();
