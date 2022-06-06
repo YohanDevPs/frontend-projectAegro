@@ -1,9 +1,9 @@
-import { ProductionListComponent } from './pages/production/production-list.component';
-import { PlotFormComponent } from './pages/plot/plot-form.component';
-import { PlotListComponent } from './pages/plot/plot-list.component';
 import { FarmListComponent } from './pages/farm/farm-list.component';
 import { FarmFormComponent } from './pages/farm/farm-form.component';
-
+import { PlotListComponent } from './pages/plot/plot-list.component';
+import { PlotFormComponent } from './pages/plot/plot-form.component';
+import { ProductionListComponent } from './pages/production/production-list.component';
+import { ProductionFormComponent } from './pages/production/production-form.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -23,7 +23,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductionFormComponent } from './pages/production/production-form.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,7 @@ import { ProductionFormComponent } from './pages/production/production-form.comp
     PlotFormComponent,
     PlotListComponent,
     ProductionFormComponent,
-    ProductionListComponent
+    ProductionListComponent,
   ],
   imports: [
     BrowserModule,
