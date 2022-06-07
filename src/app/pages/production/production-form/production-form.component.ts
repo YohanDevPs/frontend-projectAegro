@@ -1,5 +1,5 @@
-import { ProductionService } from './../../service/production.service';
-import { Production } from './../../model/production-model';
+import { ProductionService } from '../../../service/production.service';
+import { Production } from '../../../model/production-model';
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';

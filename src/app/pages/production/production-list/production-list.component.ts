@@ -1,8 +1,8 @@
 import { Plot } from 'src/app/model/plot-model';
-import { PlotService } from './../../service/plot-service.service';
+import { PlotService } from '../../../service/plot-service.service';
 import { Farm } from 'src/app/model/farm-model';
-import { Production } from './../../model/production-model';
-import { ProductionService } from './../../service/production.service';
+import { Production } from '../../../model/production-model';
+import { ProductionService } from '../../../service/production.service';
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';

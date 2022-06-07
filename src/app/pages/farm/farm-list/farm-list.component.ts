@@ -1,5 +1,5 @@
 import { Farm } from 'src/app/model/farm-model';
-import { FarmService } from './../../service/farm-service.service';
+import { FarmService } from '../../../service/farm-service.service';
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';

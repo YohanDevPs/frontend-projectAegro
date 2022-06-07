@@ -1,9 +1,9 @@
-import { FarmListComponent } from './pages/farm/farm-list.component';
-import { FarmFormComponent } from './pages/farm/farm-form.component';
-import { PlotListComponent } from './pages/plot/plot-list.component';
-import { PlotFormComponent } from './pages/plot/plot-form.component';
-import { ProductionListComponent } from './pages/production/production-list.component';
-import { ProductionFormComponent } from './pages/production/production-form.component';
+import { FarmListComponent } from './pages/farm/farm-list/farm-list.component';
+import { FarmFormComponent } from './pages/farm/farm-form/farm-form.component';
+import { PlotListComponent } from './pages/plot/plot-list/plot-list.component';
+import { PlotFormComponent } from './pages/plot/plot-form/plot-form.component';
+import { ProductionListComponent } from './pages/production/production-list/production-list.component';
+import { ProductionFormComponent } from './pages/production/production-form/production-form.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

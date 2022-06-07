@@ -1,7 +1,7 @@
-import { Farm } from './../../model/farm-model';
+import { Farm } from '../../../model/farm-model';
 import { FarmService } from 'src/app/service/farm-service.service';
-import { Plot } from './../../model/plot-model';
-import { PlotService } from './../../service/plot-service.service';
+import { Plot } from '../../../model/plot-model';
+import { PlotService } from '../../../service/plot-service.service';
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
