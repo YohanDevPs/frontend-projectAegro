@@ -5,6 +5,8 @@ import { PlotService } from '../../../service/plot-service.service';
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DialogDeletePlotComponent } from '../dialog-delete-plot/dialog-delete-plot.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -25,7 +27,8 @@ export class PlotListComponent implements OnInit {
   constructor(private router: Router,
     private route:ActivatedRoute,
     private plotService: PlotService,
-    private farmService: FarmService) { }
+    private farmService: FarmService,
+    public dialog: MatDialog) { }
 
 
     ngOnInit(): void {
@@ -35,6 +38,18 @@ export class PlotListComponent implements OnInit {
       }
 
       this.plotList(this.idFarm);
+    }
+
+    warningDeletePlot(talhao: Plot): void {
+      const dialogRef = this.dialog.open(DialogDeletePlotComponent, {
+        width: '450px',
+        data: {plot: talhao}
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.plotList(this.idFarm);
+      });
     }
 
     private plotList(idFarm: number): Array<Plot> {

@@ -25,6 +25,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogDeleteFarmComponent } from './pages/farm/dialog-delete-farm/dialog-delete-farm.component';
+import { DialogDeletePlotComponent } from './pages/plot/dialog-delete-plot/dialog-delete-plot.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DialogDeleteFarmComponent } from './pages/farm/dialog-delete-farm/dialo
     ProductionFormComponent,
     ProductionListComponent,
     DialogDeleteFarmComponent,
+    DialogDeletePlotComponent,
   ],
   imports: [
     BrowserModule,
