@@ -15,6 +15,14 @@ table{
   font-size: 27px;
 }
 
+.button-backpage{
+  transform: scale(1.2);
+}
+
+.button-backpage:hover{
+  right: 5px;
+}
+
 .teste{
   display: inline-block;
 }
@@ -46,6 +54,10 @@ table{
 
 .block-topinformation{
   border-bottom: solid 1px rgb(177, 177, 177);
+}
+
+.name-plot{
+  font-size: 27px;
 }
 
 .title-table{
@@ -81,7 +93,14 @@ table{
   margin-bottom: 0px;
   font-size: 13px;
 }
+.buttons-table:hover{
+  background: rgb(189, 190, 188);
+  transition: 0.5s all;
+}
 
+.buttons-table{
+  float: right;
+}
 
 .quantitity-productivity{
   margin-top: -9px;
@@ -89,3 +108,8 @@ table{
   margin-left: 45px;
   font-weight: normal;
  }
+
+ .mat-elevation-z8 tr:hover {
+  background: rgb(234, 235, 233);
+  transition: 0.5s all;
+}

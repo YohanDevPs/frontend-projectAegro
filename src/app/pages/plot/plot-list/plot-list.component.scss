@@ -10,17 +10,29 @@ table{
   box-shadow: none;
 }
 
-#name-farm{
+.name-farm{
   margin-top: 110px;
   font-size: 27px;
 }
 
+.button-backpage{
+  transform: scale(1.2);
+}
+
+.button-backpage:hover{
+  right: 5px;
+}
 
 .top-firslinetinfo{
   display: inline-block;
 }
 
-#button-editarfazenda{
+.mat-elevation-z8 tr:hover {
+  background: rgb(234, 235, 233);
+  transition: 0.5s all;
+}
+
+.button-editarfazenda{
   top: 30px;
   position: absolute;
   right: 50px;
@@ -32,7 +44,7 @@ table{
 	border: none;
 }
 
-#button-deletarfazenda{
+.button-deletarfazenda{
   top: 30px;
   position: absolute;
   right: 10px;
@@ -45,8 +57,14 @@ table{
   border-left: solid 2px rgb(210, 208, 208);
 }
 
+.buttons-table{
+  float: right;
+}
 
-
+.buttons-table:hover{
+  background: rgb(189, 190, 188);
+  transition: 0.5s all;
+}
 .fabButton{
   bottom: 15px;
   position: absolute;

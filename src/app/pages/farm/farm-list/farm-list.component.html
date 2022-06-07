@@ -7,14 +7,14 @@
       </div>
       <table mat-table [dataSource]="farms" class="mat-elevation-z8">
 
-        <ng-container matColumnDef="home">
+        <ng-container  matColumnDef="home">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element">
             <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
           </td>
         </ng-container>
 
-        <ng-container matColumnDef="nameFarm">
+        <ng-container class="Nome" matColumnDef="nameFarm">
           <th mat-header-cell *matHeaderCellDef> Nome </th>
           <td mat-cell *matCellDef="let element"> {{element.nameFarm}} </td>
         </ng-container>
@@ -22,14 +22,14 @@
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element">
-            <button mat-icon-button="primary" (click)="editFarm(element)">
-              <mat-icon>edit</mat-icon>
+            <button class="buttons-table" mat-icon-button="primary" (click)="addPlotInFarm(element)">
+              <mat-icon>keyboard_arrow_right</mat-icon>
             </button>
-            <button mat-icon-button="primary" (click)="warningDeleteFarm(element)">
+            <button class="buttons-table" mat-icon-button="primary" (click)="warningDeleteFarm(element)">
               <mat-icon>delete</mat-icon>
             </button>
-            <button mat-icon-button="primary" (click)="addPlotInFarm(element)">
-              <mat-icon>keyboard_arrow_right</mat-icon>
+            <button class="buttons-table" mat-icon-button="primary" (click)="editFarm(element)">
+              <mat-icon>edit</mat-icon>
             </button>
           </td>
         </ng-container>

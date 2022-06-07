@@ -2,15 +2,15 @@
 <div class="p-3">
   <mat-card>
     <div class="block-topinformation">
-      <h2 class="toinline">
-        <button class="top-firslinetinfo" id="button-backpage" (click)="backPage()" mat-icon-button="primary">
+      <h2>
+        <button class="button-backpage" (click)="backPage()" mat-icon-button="primary">
           <mat-icon>arrow_back_ios</mat-icon>
         </button>
-        <strong  id="name-farm"> {{ farm.nameFarm }} </strong>
-        <button class="top-firslinetinfo" id="button-editarfazenda" (click)="onEditFarm()">
+        <strong  class="name-farm"> {{ farm.nameFarm }} </strong>
+        <button class="button-editarfazenda" (click)="onEditFarm()">
           <mat-icon>edit</mat-icon>
         </button>
-        <button class="top-firslinetinfo" id="button-deletarfazenda" (click)="onDeleteFarm(farm)">
+        <button class="button-deletarfazenda" (click)="onDeleteFarm(farm)">
           <mat-icon>delete</mat-icon>
         </button>
         <h4 id="name-productivity"> Produtividade</h4>
@@ -36,21 +36,21 @@
       </ng-container>
 
       <ng-container matColumnDef="plotAreaInHectare">
-        <th mat-header-cell *matHeaderCellDef>Área(ha)</th>
+        <th mat-header-cell *matHeaderCellDef> Área(ha)</th>
         <td mat-cell *matCellDef="let element"> {{element.plotAreaInHectare}} </td>
       </ng-container>
 
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button="primary" (click)="editPlot(element)">
-            <mat-icon>edit</mat-icon>
+          <button class="buttons-table" mat-icon-button="primary" (click)="onAddProduction(element)">
+            <mat-icon>keyboard_arrow_right</mat-icon>
           </button>
-          <button mat-icon-button="primary" (click)="warningDeletePlot(element)">
+          <button class="buttons-table" mat-icon-button="primary" (click)="warningDeletePlot(element)">
             <mat-icon>delete</mat-icon>
           </button>
-          <button mat-icon-button="primary" (click)="onAddProduction(element)">
-            <mat-icon>keyboard_arrow_right</mat-icon>
+          <button  class="buttons-table" mat-icon-button="primary" (click)="editPlot(element)">
+            <mat-icon>edit</mat-icon>
           </button>
         </td>
       </ng-container>
