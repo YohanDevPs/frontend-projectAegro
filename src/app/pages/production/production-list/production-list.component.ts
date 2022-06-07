@@ -6,6 +6,8 @@ import { ProductionService } from '../../../service/production.service';
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogDeleteProductionComponent } from '../dialog-delete-production/dialog-delete-production.component';
 
 @Component({
   selector: 'app-production-list',
@@ -25,7 +27,8 @@ export class ProductionListComponent implements OnInit {
   constructor(private router: Router,
     private route:ActivatedRoute,
     private productionService: ProductionService,
-    private plotService: PlotService) { };
+    private plotService: PlotService,
+    private dialog: MatDialog) { };
 
     ngOnInit(): void {
       this.idPlot = this.route.snapshot.params['idPlot'];
@@ -35,6 +38,18 @@ export class ProductionListComponent implements OnInit {
       }
 
       this.productionList(this.idPlot);
+    }
+
+    warningDeletePlot(producao: Production): void {
+      const dialogRef = this.dialog.open(DialogDeleteProductionComponent, {
+        width: '450px',
+        data: {production: producao}
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.productionList(this.idPlot);
+      });
     }
 
     private productionList(idPlot: number): void{
