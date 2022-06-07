@@ -2,25 +2,27 @@
   <div class="p-3">
     <mat-card>
       <div class="block-topinformation">
-        <h2 class="toinline">
+        <h2>
           <button class="top-info" id="button-backpage" (click)="backPage()" mat-icon-button="primary">
             <mat-icon>arrow_back_ios</mat-icon>
           </button>
           <strong class="name-plot"> {{ plot.namePlot }} </strong>
-          <button class="top-firslinetinfo" id="button-editarplot" (click)="onEditPlot()">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button class="top-firslinetinfo" id="button-deletarplot" (click)="onDeletePlot(plot)">
-            <mat-icon>delete</mat-icon>
-          </button>
-          <h4 class="top-info" id="name-productivity"> Produtividade</h4>
-          <h2 class="top-info" id="quantitity-productivity">{{ plot.plotProductivity }} kg/ha</h2>
+
+            <button  class="button-editarplot" (click)="onEditPlot()">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button class="button-deletarplot" (click)="onDeletePlot(plot)">
+              <mat-icon>delete</mat-icon>
+            </button>
+
+          <h4 class="name-productivity"> Produtividade</h4>
+          <h2 class="quantitity-productivity">{{ plot.plotProductivity }} kg/ha</h2>
         </h2>
       </div>
 
       <h3  class="title-table">Produção</h3>
-      <button id="adicionar-producao" (click)="onAddProduction()">+ Nova Produção</button>
-      <table id="table" mat-table [dataSource]="productions" class="mat-elevation-z8">
+      <button class="adicionar-producao" (click)="onAddProduction()">+ Nova Produção</button>
+      <table mat-table [dataSource]="productions" class="mat-elevation-z8">
 
         <ng-container matColumnDef="producao">
           <th mat-header-cell *matHeaderCellDef></th>

@@ -5,6 +5,7 @@
 }
 
 table{
+  margin-top: 80px;
   width: 100%;
   box-shadow: none;
 }
@@ -18,7 +19,7 @@ table{
   display: inline-block;
 }
 
-#button-editarplot{
+.button-editarplot{
   top: 30px;
   position: absolute;
   right: 50px;
@@ -30,7 +31,7 @@ table{
 	border: none;
 }
 
-#button-deletarplot{
+.button-deletarplot{
   top: 30px;
   position: absolute;
   right: 10px;
@@ -56,20 +57,7 @@ table{
 	border: none;
 }
 
-#adicionar-talhao{
-  top: 10px;
-  position: absolute;
-  right: 50px;
-  padding: 0px 20px 0px 20px;
-	background: rgb(10, 175, 37);
-	color: white;
-	font-weight: bold;
-	font-size: 14px;
-	border: none;
-	transition: 0.1s all;
-}
-
-#adicionar-producao{
+.adicionar-producao{
   top: 150px;
   position: absolute;
   right: 20px;
@@ -82,11 +70,11 @@ table{
 	transition: 0.1s all;
 }
 
-#adicionar-producao:hover {
+.adicionar-producao:hover {
 	background: rgb(8, 67, 3);
 }
 
-#name-productivity{
+.name-productivity{
   color: rgb(180, 180, 180);
   padding: 0px 0px 0px 0px;
   margin-left: 45px;
@@ -94,18 +82,10 @@ table{
   font-size: 13px;
 }
 
-#table{
-  margin-top: 100px;
-}
 
-#quantitity-productivity{
+.quantitity-productivity{
   margin-top: -9px;
   padding: 0px 0px 0px 0px;
   margin-left: 45px;
   font-weight: normal;
  }
-
-// #quantitity-productivity{
-//   margin-top: 0px;
-//   margin-left: 45px;
-// }

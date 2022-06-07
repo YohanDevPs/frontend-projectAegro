@@ -1,9 +1,10 @@
 <div class="container-list">
   <div class="p-3">
     <mat-card>
-      <h2 class="top-info">Fazendas</h2>
-
-      <button class="top-info" id="button-adicionarfazenda" (click)="addNewFarm()">+ Nova Fazenda</button>
+      <div class="top-info">
+        <h2>Fazendas</h2>
+        <button class="button-adicionarfazenda" (click)="addNewFarm()">+ Nova Fazenda</button>
+      </div>
       <table mat-table [dataSource]="farms" class="mat-elevation-z8">
 
         <ng-container matColumnDef="home">
