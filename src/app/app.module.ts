@@ -20,9 +20,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
+import { DialogDeleteFarmComponent } from './pages/farm/dialog-delete-farm/dialog-delete-farm.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     PlotListComponent,
     ProductionFormComponent,
     ProductionListComponent,
+    DialogDeleteFarmComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatTableModule,
     MatFormFieldModule,
+    MatDialogModule,
     FormsModule,
     MatInputModule,
     HttpClientModule

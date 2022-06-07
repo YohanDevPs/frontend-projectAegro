@@ -32,6 +32,8 @@ export class ProductionFormComponent implements OnInit {
   }
 
   salvarProduction(){
+
+    console.log("Corpo do production: ", this.production)
     this.production.idProduction ?
 
       this.productionService.putProduction$(this.production, this.production.idProduction)

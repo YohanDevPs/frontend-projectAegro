@@ -49,7 +49,7 @@ export class ProductionListComponent implements OnInit {
   }
 
   onEditProduction(production: Production){
-    this.router.navigate(['productionform-edit', production.idProduction, this.idPlot]);
+    this.router.navigate(['productionform-edit', production.idProduction, this.idPlot, this.idFarm]);
   }
 
   onDeleteProduction(production: Production){
