@@ -10,7 +10,7 @@
           <button class="top-firslinetinfo" id="button-editarplot" (click)="onEditPlot()">
             <mat-icon>edit</mat-icon>
           </button>
-          <button class="top-firslinetinfo" id="button-deletarplot" (click)="onDeletePlot()">
+          <button class="top-firslinetinfo" id="button-deletarplot" (click)="onDeletePlot(plot)">
             <mat-icon>delete</mat-icon>
           </button>
           <h4 class="top-info" id="name-productivity"> Produtividade</h4>
@@ -40,7 +40,7 @@
           <button mat-icon-button="primary" (click)="onEditProduction(element)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button="primary" (click)="warningDeletePlot(element)">
+          <button mat-icon-button="primary" (click)="warningDeleteProduction(element)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>

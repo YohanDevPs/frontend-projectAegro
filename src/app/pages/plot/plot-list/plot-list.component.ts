@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DialogDeletePlotComponent } from '../dialog-delete-plot/dialog-delete-plot.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DialogDeleteFarmComponent } from '../../farm/dialog-delete-farm/dialog-delete-farm.component';
 
 
 @Component({
@@ -30,14 +31,31 @@ export class PlotListComponent implements OnInit {
     private farmService: FarmService,
     public dialog: MatDialog) { }
 
-
     ngOnInit(): void {
       this.idFarm = this.route.snapshot.params['idFarm'];
       if(this.idFarm) {
         this.farmService.farmById(this.idFarm).subscribe(farm => this.farm = farm)
       }
-
       this.plotList(this.idFarm);
+    }
+
+    private plotList(idFarm: number): Array<Plot> {
+        this.plotService.listPlotByIdFarm$(idFarm).subscribe(plots => {
+          this.plots = plots;
+        });
+        return this.plots;
+    }
+
+    onDeleteFarm(fazenda: Farm): void {
+      const dialogRef = this.dialog.open(DialogDeleteFarmComponent, {
+        width: '450px',
+        data: {farm: fazenda}
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        () => this.backPage();
+      });
     }
 
     warningDeletePlot(talhao: Plot): void {
@@ -52,18 +70,6 @@ export class PlotListComponent implements OnInit {
       });
     }
 
-    private plotList(idFarm: number): Array<Plot> {
-      if (this.plotService.listPlotByIdFarm$(idFarm) === undefined ){
-        console.log("Lista vazia")
-        return this.plots = [];
-      }else{
-        this.plotService.listPlotByIdFarm$(idFarm).subscribe(plots => {
-        this.plots = plots;
-        return this.plots;
-      });
-     }
-    }
-
     addPlot(){
       this.router.navigate(['plotform-cadastro', this.idFarm]);
     }
@@ -74,14 +80,6 @@ export class PlotListComponent implements OnInit {
 
     onEditFarm(){
       this.router.navigate(['farmform-edit', this.idFarm])
-    }
-
-    onDeleteFarm(){
-      this.farmService.delete$(this.idFarm).subscribe(() => this.backPage())
-    }
-
-    deletePlot(plot: Plot){
-      this.plotService.delete$(plot.idPlot).subscribe(() => this.plotList(this.idFarm))
     }
 
     onAddProduction(plot: Plot){

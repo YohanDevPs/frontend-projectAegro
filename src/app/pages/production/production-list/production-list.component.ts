@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogDeleteProductionComponent } from '../dialog-delete-production/dialog-delete-production.component';
+import { DialogDeletePlotComponent } from '../../plot/dialog-delete-plot/dialog-delete-plot.component';
 
 @Component({
   selector: 'app-production-list',
@@ -36,11 +37,10 @@ export class ProductionListComponent implements OnInit {
       if(this.idPlot) {
         this.plotService.plotById(this.idPlot).subscribe(plot => this.plot = plot);
       }
-
       this.productionList(this.idPlot);
     }
 
-    warningDeletePlot(producao: Production): void {
+    warningDeleteProduction(producao: Production): void {
       const dialogRef = this.dialog.open(DialogDeleteProductionComponent, {
         width: '450px',
         data: {production: producao}
@@ -52,10 +52,12 @@ export class ProductionListComponent implements OnInit {
       });
     }
 
-    private productionList(idPlot: number): void{
-      this.productionService.listProductionByIdPlot$(idPlot).subscribe(productions => {
-      this.productions = productions;
+    private productionList(idPlot: number): Array<Production>{
+      this.productionService.listProductionByIdPlot$(idPlot)
+      .subscribe(productions => {
+        this.productions = productions;
     });
+    return this.productions;
   }
 
   onAddProduction(){
@@ -71,8 +73,8 @@ export class ProductionListComponent implements OnInit {
     this.productionService.deleteProduction$(production.idProduction).subscribe(() => this.productionList(this.idPlot))
   }
 
-  onDeletePlot(){
-    this.plotService.delete$(this.idPlot).subscribe(() => this.backPage());
+  onDeletePlot(plot:Plot){
+    this.plotService.delete$(plot.idPlot).subscribe(() => this.backPage());
   }
 
   onEditPlot(){

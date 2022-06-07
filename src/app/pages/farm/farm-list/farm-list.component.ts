@@ -25,6 +25,12 @@ export class FarmListComponent implements OnInit {
     this.farmList();
   }
 
+  private farmList(): void{
+    this.farmService.listFarms$.subscribe(farms => {
+      this.farms = farms;
+    });
+  }
+
   warningDeleteFarm(fazenda: Farm): void {
     const dialogRef = this.dialog.open(DialogDeleteFarmComponent, {
       width: '450px',
@@ -37,13 +43,6 @@ export class FarmListComponent implements OnInit {
     });
   }
 
-
-  private farmList(): void{
-  this.farmService.listFarms$.subscribe(farms => {
-    this.farms = farms;
-  });
-  }
-
   addNewFarm(){
     this.router.navigate(['farmform-cadastro'])
   }
@@ -54,10 +53,6 @@ export class FarmListComponent implements OnInit {
 
   addPlotInFarm(farm: Farm){
     this.router.navigate(['listPlot', farm.id])
-  }
-
-  Aaa(id: number){
-    this.farmService.delete$(id).subscribe();
   }
 
 }
