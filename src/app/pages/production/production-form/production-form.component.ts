@@ -32,15 +32,18 @@ export class ProductionFormComponent implements OnInit {
   }
 
   salvarProduction(){
-
-    console.log("Corpo do production: ", this.production)
-    this.production.idProduction ?
-
-      this.productionService.putProduction$(this.production, this.production.idProduction)
-      .subscribe(() => this.cancelar()) :
-
-      this.productionService.postProduction$(this.production, this.idPlot)
-      .subscribe(() => this.cancelar());
+      if(this.production.amount >= 0 && this.production.idProduction == undefined){
+        this.productionService.postProduction$(this.production, this.idPlot)
+        .subscribe(() => this.cancelar());
+      }else{
+        if(this.production.amount >= 0 && this.production.idProduction > 0){
+          this.productionService.putProduction$(this.production, this.production.idProduction)
+        .subscribe(() => this.cancelar());
+      }else{
+          alert("Produção inválida!");
+          this.cancelar();
+      }
+    }
   }
 
   cancelar(){

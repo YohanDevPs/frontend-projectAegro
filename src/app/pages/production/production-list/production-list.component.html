@@ -39,11 +39,11 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <button class="buttons-table" mat-icon-button="primary" (click)="onEditProduction(element)">
-            <mat-icon>edit</mat-icon>
-          </button>
           <button class="buttons-table" mat-icon-button="primary" (click)="warningDeleteProduction(element)">
             <mat-icon>delete</mat-icon>
+          </button>
+          <button class="buttons-table" mat-icon-button="primary" (click)="onEditProduction(element)">
+            <mat-icon>edit</mat-icon>
           </button>
         </td>
       </ng-container>

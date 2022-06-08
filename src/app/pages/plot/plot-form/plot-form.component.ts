@@ -29,12 +29,26 @@ export class PlotFormComponent implements OnInit {
       this.idFarm = this.route.snapshot.params['idFarm'];
   }
 
-  salvarPlot(){
-    this.plot.idPlot ?
-      this.plotService.putPlot$(this.plot.idPlot , this.plot).subscribe(() => this.cancelar()):
-      this.plotService.postPlot$(this.plot, this.idFarm).subscribe(() => this.cancelar());
-    console.log("objeto plot: ",this.plot)
+  validationArea(){
+  if(this.plot.plotAreaInHectare > 0){
+    alert("Área deve ser maior que zero!")
   }
+}
+
+  salvarPlot(){
+    if(this.plot.plotAreaInHectare > 0 && this.plot.idPlot == undefined){
+      this.plotService.postPlot$(this.plot, this.idFarm).subscribe(() => this.cancelar());
+    }else{
+      if(this.plot.plotAreaInHectare > 0 && this.plot.idPlot > 0){
+        this.plotService.putPlot$(this.plot.idPlot , this.plot).subscribe(() => this.cancelar());
+      }else{
+        console.log("Else do post")
+        alert("Área inválida!");
+        this.cancelar();
+      }
+    }
+  }
+
 
   cancelar(){
     this.router.navigate(['listPlot', this.idFarm]);
