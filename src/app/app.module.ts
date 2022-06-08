@@ -10,7 +10,6 @@ import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './navigation/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -27,9 +26,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { DialogDeleteFarmComponent } from './pages/farm/dialog-delete-farm/dialog-delete-farm.component';
 import { DialogDeletePlotComponent } from './pages/plot/dialog-delete-plot/dialog-delete-plot.component';
 import { DialogDeleteProductionComponent } from './pages/production/dialog-delete-production/dialog-delete-production.component';
-
 import { DialogFilterNumbersComponent } from './pages/plot/dialog-filter-numbers/dialog-filter-numbers.component';
 import { DialogFiterNumberProductionComponent } from './pages/production/dialog-fiter-number-production/dialog-fiter-number-production.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -63,7 +63,9 @@ import { DialogFiterNumberProductionComponent } from './pages/production/dialog-
     MatDialogModule,
     FormsModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
