@@ -48,7 +48,7 @@ export class ProductionListComponent implements OnInit {
 
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
-        this.productionList(this.idPlot);
+        this.ngOnInit();
       });
     }
 

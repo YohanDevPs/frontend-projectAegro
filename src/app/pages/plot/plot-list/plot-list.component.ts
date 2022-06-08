@@ -67,7 +67,7 @@ export class PlotListComponent implements OnInit {
 
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
-        this.plotList(this.idFarm);
+        this.ngOnInit();
       });
     }
 
