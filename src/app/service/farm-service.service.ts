@@ -15,7 +15,7 @@ export class FarmService {
   }
 
   farmById(id:number): Observable<Farm>{
-    return this.httpClient.get<Farm>(`${environment.API_PATH}farm/${id}`);
+    return this.httpClient.get<Farm>(`${environment.API_PATH}farm/${id}`)
   }
 
   get listFarms$(): Observable<Array<Farm>>{

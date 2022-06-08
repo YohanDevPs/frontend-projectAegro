@@ -1,8 +1,10 @@
+import { DialogFilterNumbersComponent } from './../dialog-filter-numbers/dialog-filter-numbers.component';
 import { Plot } from '../../../model/plot-model';
 import { PlotService } from '../../../service/plot-service.service';
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-plot-form',
@@ -18,7 +20,8 @@ export class PlotFormComponent implements OnInit {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-    private plotService: PlotService) { }
+    private plotService: PlotService,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
       let idPlot = this.route.snapshot.params['idPlot'];
@@ -29,12 +32,6 @@ export class PlotFormComponent implements OnInit {
       this.idFarm = this.route.snapshot.params['idFarm'];
   }
 
-  validationArea(){
-  if(this.plot.plotAreaInHectare > 0){
-    alert("Área deve ser maior que zero!")
-  }
-}
-
   salvarPlot(){
     if(this.plot.plotAreaInHectare > 0 && this.plot.idPlot == undefined){
       this.plotService.postPlot$(this.plot, this.idFarm).subscribe(() => this.cancelar());
@@ -42,13 +39,21 @@ export class PlotFormComponent implements OnInit {
       if(this.plot.plotAreaInHectare > 0 && this.plot.idPlot > 0){
         this.plotService.putPlot$(this.plot.idPlot , this.plot).subscribe(() => this.cancelar());
       }else{
-        console.log("Else do post")
-        alert("Área inválida!");
-        this.cancelar();
+        this.filterNegativeNumberDialog();
       }
     }
   }
 
+  filterNegativeNumberDialog(): void {
+    const dialogRef = this.dialog.open(DialogFilterNumbersComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.cancelar();
+    });
+  }
 
   cancelar(){
     this.router.navigate(['listPlot', this.idFarm]);

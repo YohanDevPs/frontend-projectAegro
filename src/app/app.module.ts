@@ -28,6 +28,9 @@ import { DialogDeleteFarmComponent } from './pages/farm/dialog-delete-farm/dialo
 import { DialogDeletePlotComponent } from './pages/plot/dialog-delete-plot/dialog-delete-plot.component';
 import { DialogDeleteProductionComponent } from './pages/production/dialog-delete-production/dialog-delete-production.component';
 
+import { DialogFilterNumbersComponent } from './pages/plot/dialog-filter-numbers/dialog-filter-numbers.component';
+import { DialogFiterNumberProductionComponent } from './pages/production/dialog-fiter-number-production/dialog-fiter-number-production.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +44,8 @@ import { DialogDeleteProductionComponent } from './pages/production/dialog-delet
     DialogDeleteFarmComponent,
     DialogDeletePlotComponent,
     DialogDeleteProductionComponent,
+    DialogFilterNumbersComponent,
+    DialogFiterNumberProductionComponent,
   ],
   imports: [
     BrowserModule,

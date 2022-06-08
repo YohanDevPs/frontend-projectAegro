@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DialogDeletePlotComponent } from '../dialog-delete-plot/dialog-delete-plot.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogDeleteFarmComponent } from '../../farm/dialog-delete-farm/dialog-delete-farm.component';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({

@@ -1,8 +1,10 @@
+import { DialogFiterNumberProductionComponent } from './../dialog-fiter-number-production/dialog-fiter-number-production.component';
 import { ProductionService } from '../../../service/production.service';
 import { Production } from '../../../model/production-model';
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-production-form',
@@ -19,7 +21,8 @@ export class ProductionFormComponent implements OnInit {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-    private productionService: ProductionService) { }
+    private productionService: ProductionService,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
       const idProduction = this.route.snapshot.params['idProduction'];
@@ -40,10 +43,20 @@ export class ProductionFormComponent implements OnInit {
           this.productionService.putProduction$(this.production, this.production.idProduction)
         .subscribe(() => this.cancelar());
       }else{
-          alert("Produção inválida!");
-          this.cancelar();
+        this.filterNegativeNumberDialog();
       }
     }
+  }
+
+  filterNegativeNumberDialog(): void {
+    const dialogRef = this.dialog.open(DialogFiterNumberProductionComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.cancelar();
+    });
   }
 
   cancelar(){
