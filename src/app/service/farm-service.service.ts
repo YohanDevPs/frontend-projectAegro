@@ -19,35 +19,30 @@ export class FarmService {
 
   farmById(id:number): Observable<Farm>{
     return this.httpClient.get<Farm>(`${environment.API_PATH}farm/${id}`).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }
 
   get listFarms$(): Observable<Array<Farm>>{
     return this.httpClient.get<Array<Farm>>(`${environment.API_PATH}farm`).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }
 
   post$(farm?: Farm): Observable<Farm> {
     return this.httpClient.post<Farm>(`${environment.API_PATH}farm`, farm).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }
 
   put$(id:number, farm:Farm): Observable<Farm>{
     return this.httpClient.put<Farm>(`${environment.API_PATH}farm/${farm.id}`, farm).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }
 
   delete$(id:number): Observable<Farm>{
     return this.httpClient.delete<Farm>(`${environment.API_PATH}farm/${id}`).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }

@@ -17,7 +17,6 @@ export class ProductionService {
 
   productionById(idProduction:number): Observable<Production>{
     return this.httpClient.get<Production>(`${environment.API_PATH}production/${idProduction}`).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }
@@ -25,28 +24,24 @@ export class ProductionService {
 
   postProduction$(production: Production, idPlot:number): Observable<Production> {
     return this.httpClient.post<Production>(`${environment.API_PATH}production/${idPlot}/plot`, production).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }
 
   listProductionByIdPlot$(idPlot:number): Observable<Array<Production>> {
     return this.httpClient.get<Array<Production>>(`${environment.API_PATH}production/${idPlot}/idplot`).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }
 
   putProduction$(production: Production, idProduction:number): Observable<Production>{
     return this.httpClient.put<Production>(`${environment.API_PATH}production/${idProduction}`, production).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }
 
   deleteProduction$(idProduction:number): Observable<Production>{
     return this.httpClient.delete<Production>(`${environment.API_PATH}production/${idProduction}`).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }

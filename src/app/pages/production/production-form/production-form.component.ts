@@ -35,20 +35,31 @@ export class ProductionFormComponent implements OnInit {
   }
 
   salvarProduction(){
-      if(this.production.amount >= 0 && this.production.idProduction == undefined){
-        this.productionService.postProduction$(this.production, this.idPlot)
-        .subscribe(() => this.cancelar());
-      }else{
-        if(this.production.amount >= 0 && this.production.idProduction > 0){
-          this.productionService.putProduction$(this.production, this.production.idProduction)
-        .subscribe(() => this.cancelar());
-      }else{
-        this.filterNegativeNumberDialog();
-      }
+
+    let numberDefineCase:number = this.defineCase(this.production.amount, this.production.idProduction);
+
+    switch(numberDefineCase){
+      case 1 : this.productionService.postProduction$(this.production, this.idPlot)
+          .subscribe(() => this.cancelar()); break;
+
+      case 2 :this.productionService.putProduction$(this.production, this.production.idProduction)
+          .subscribe(() => this.cancelar()); break;
+
+      case 3 : this.filterNumberDialog(); break;
     }
   }
 
-  filterNegativeNumberDialog(): void {
+  defineCase(amountProduction: number, idProduction: number): number{
+    let numberDefineCase = 0;
+
+    if(this.production.amount >= 0 && this.production.idProduction == undefined){ return  numberDefineCase = 1 }
+
+    if(this.production.amount >= 0 && this.production.idProduction > 0){ return  numberDefineCase = 2 }
+
+      return numberDefineCase = 3;
+  }
+
+  filterNumberDialog(): void {
     const dialogRef = this.dialog.open(DialogFiterNumberProductionComponent, {
       width: '250px',
     });
@@ -64,3 +75,4 @@ export class ProductionFormComponent implements OnInit {
   }
 
 }
+

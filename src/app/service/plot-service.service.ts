@@ -17,35 +17,30 @@ export class PlotService {
 
   plotById(id:number): Observable<Plot>{
     return this.httpClient.get<Plot>(`${environment.API_PATH}plot/${id}`).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }
 
   postPlot$(plot: Plot, idFarm:number): Observable<Plot> {
     return this.httpClient.post<Plot>(`${environment.API_PATH}plot/${idFarm}/farmid`, plot).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }
 
   listPlotByIdFarm$(idFarm:number): Observable<Array<Plot>> {
     return this.httpClient.get<Array<Plot>>(`${environment.API_PATH}plot/${idFarm}/farmid`).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }
 
   putPlot$(idPlot:number, plot: Plot): Observable<Plot>{
     return this.httpClient.put<Plot>(`${environment.API_PATH}plot/${idPlot}`, plot).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }
 
   delete$(idPlot:number): Observable<Plot>{
     return this.httpClient.delete<Plot>(`${environment.API_PATH}plot/${idPlot}`).pipe(
-      map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
   }

@@ -33,18 +33,29 @@ export class PlotFormComponent implements OnInit {
   }
 
   salvarPlot(){
-    if(this.plot.plotAreaInHectare > 0 && this.plot.idPlot == undefined){
-      this.plotService.postPlot$(this.plot, this.idFarm).subscribe(() => this.cancelar());
-    }else{
-      if(this.plot.plotAreaInHectare > 0 && this.plot.idPlot > 0){
-        this.plotService.putPlot$(this.plot.idPlot , this.plot).subscribe(() => this.cancelar());
-      }else{
-        this.filterNegativeNumberDialog();
-      }
+
+    let numberDefineCase:number = this.defineCase(this.plot.plotAreaInHectare, this.plot.idPlot);
+
+    switch(numberDefineCase){
+      case 1 : this.plotService.postPlot$(this.plot, this.idFarm).subscribe(() => this.cancelar()); break;
+
+      case 2 :this.plotService.putPlot$(this.plot.idPlot , this.plot).subscribe(() => this.cancelar()); break;
+
+      case 3 : this.filterNumberDialog(); break;
     }
   }
 
-  filterNegativeNumberDialog(): void {
+  defineCase(plotAreaInHectare: number, idPlot: number): number{
+    let numberDefineCase = 0;
+
+    if(this.plot.plotAreaInHectare > 0 && this.plot.idPlot == undefined){ return  numberDefineCase = 1 }
+
+    if(this.plot.plotAreaInHectare > 0 && this.plot.idPlot > 0){ return  numberDefineCase = 2 }
+
+      return numberDefineCase = 3;
+  }
+
+  filterNumberDialog(): void {
     const dialogRef = this.dialog.open(DialogFilterNumbersComponent, {
       width: '250px',
     });
